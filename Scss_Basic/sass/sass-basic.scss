@@ -1,0 +1,91 @@
+//Nesting
+
+//partial
+@import "mixins";
+
+//mixin
+// @mixin fontSizeBgColor($fontSize: 20px, $bgColor: #fff) {
+//   font-size: $fontSize;
+//   background-color: $bgColor;
+// }
+
+// @mixin linkStyle($textColor, $textDeco: none) {
+//   color: $textColor;
+//   text-decoration: $textDeco;
+// }
+
+
+
+//extend
+// %boxShape {
+//   border-radius: 50px;
+//   border: 3px solid #f00;
+//   box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+// }
+@import "partial/styles";
+
+html {
+  font-size: 18px;
+}
+
+body {
+  margin: 20px;
+  background-color: #fff4ef;
+  
+}
+
+div {
+  color: #333;
+  padding: 20px;
+}
+
+a {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+#box1 {
+  @include fontSizeBgColor(40px, #ffcccc);
+  @extend %boxShape;
+  &:hover {
+    background-color: #ccc;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 501px) and (max-width: 900px) {
+    font-size: 30px;
+  }
+
+  //#box1-title
+  &-title {
+    font-style: italic;
+    text-decoration: underline;
+    border-radius: 20px;
+    border: 3px solid #f00;
+  }
+
+  & > a {
+    @include linkStyle(#a22);
+
+    &:hover {
+      @include linkStyle(#000, underline);
+    }
+  }
+}
+
+#box1 #box2 {
+  @include fontSizeBgColor(20px, green);
+
+  //   border-radius: 20px;
+  //   border: 3px solid #f00;
+  //   box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+  @extend %boxShape;
+  & > a {
+    @include linkStyle(#ee6633);
+
+    &:hover {
+      @include linkStyle(color, underline);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+// @mixin fontSizeBgColor($fontSize: 20px, $bgColor: #fff) {
+//   font-size: $fontSize;
+//   background-color: $bgColor;
+// }
+
+// @mixin linkStyle($textColor, $textDeco: none) {
+//   color: $textColor;
+//   text-decoration: $textDeco;
+// }
+@import "mixins";
+@import "partial/styles";
+#test {
+  @include fontSizeBgColor(40px, #999);
+  @extend %boxShape;
+}
