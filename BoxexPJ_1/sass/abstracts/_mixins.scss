@@ -1,0 +1,24 @@
+//mixin
+@mixin width-height-padding($w, $h, $p) {
+  width: $w;
+  height: $h;
+  padding: $p;
+}
+
+@mixin mq($screen-width) {
+  @if $screen-width == "phone" {
+    @media screen and (max-width: 600px) {
+      @content;
+      // content는 index.scss에서보기
+    }
+  } @else if $screen-width == "tablet-land" {
+    @media screen and (min-width: 601px) and (max-width: 899px) {
+      @content;
+    }
+  } @else if $screen-width == "desktop-big" {
+    @media screen and (min-width: 1201px) {
+      @content;
+    }
+  } @else {
+  }
+}

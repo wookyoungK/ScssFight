@@ -1,0 +1,45 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "base/base";
+
+//Nesting
+.box {
+  @include width-height-padding(300px, 300px, 20px);
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  &,
+  &-inner {
+    border: 3px solid $border-color;
+  }
+  @include mq("phone") {
+    //@content 내용
+    border: none;
+  }
+  @include mq("tablet-land") {
+    //@content 내용
+    border: 2px solid $border-color;
+  }
+  @include mq("desktop-big") {
+    //@content 내용
+    border: 10px solid $border-color;
+  }
+  &-inner {
+    background-color: #ccc;
+
+    @include width-height-padding(initial, 40px, 10px);
+
+    &-title {
+      font-size: 20px;
+      color: $color-white;
+      background-color: rgba($color-black, 0.5);
+
+      @include mq("tablet-land") {
+        //@content 내용
+        font-size: 30px;
+      }
+    }
+  }
+}
